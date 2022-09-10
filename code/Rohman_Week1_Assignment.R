@@ -48,10 +48,10 @@ row.names(df.h) <- c(row.names(df.a[1:15,]),"Horse")
 df.h
 
 # Export the data frame as a .csv file 
-write.csv(df.h,"C:/GitHub/R4Eco_2022/Week1/RohmanHM.CSV", row.names = TRUE)
+write.csv(df.h,"C:/GitHub/R4Eco_2022/Week1/RohmanHM.CSV", row.names = TRUE)# So close! this saves it to the course repository instead of your personal repository.
 
 # Generate summary statistics of your data frame and copy them as text into your script under a new section heading.
-summary(df.h)
+summary(df.h)#Summary should have numbers for the numeric vectors.
 
 #cat                fish              mouse               bird          
 #Length:16          Length:16          Length:16          Length:16         
