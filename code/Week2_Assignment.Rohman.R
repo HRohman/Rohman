@@ -26,18 +26,27 @@ barplot(df.mean$Mean, names.arg = df.mean$Factor)
 df.sd <- aggregate(df1$rep.num ~df1$group.char, FUN = "sd")
 colnames(df.sd) <- c("Factor","StanDev")
 df.sd
-b.plot <- barplot(df.mean$Mean, names.arg = df.mean$Factor)
+b.plot <- barplot(df.mean$Mean, names.arg = df.mean$Factor, xlab = "Explanatory", ylab = "Response", main = "Baby's First Barplot")
 
   # Add error bars with mean and standard deviation to the plot
-arrows(b.plot, df.mean$Mean-df.sd$StanDev,b.plot, df.mean$Mean+df.sd$StanDev,angle=90,code=3)
+arrows(b.plot, df.mean$Mean-df.sd$StanDev,
+       b.plot, df.mean$Mean+df.sd$StanDev,angle=90,code=3)
 b.plot <- barplot(df.mean$Mean, names.arg = df.mean$Factor, ylim = c(0,5))
-arrows(b.plot, df.mean$Mean-df.sd$StanDev,b.plot, df.mean$Mean+df.sd$StanDev,angle=90,code=3)
+arrows(b.plot, df.mean$Mean-df.sd$StanDev,
+       b.plot, df.mean$Mean+df.sd$StanDev,angle=90,code=3)
 
-  # Change the x and y labels and add a title
+# Change the x and y labels and add a title
+b.plot <- barplot(df.mean$Mean, names.arg = df.mean$Factor, ylim = c(0,5), xlab = "Explanatory", ylab = "Response", main = "Baby's First Barplot")
   # Export the plot as a PDF that is 4 inches wide and 7 inches tall.
 
 # Create a scatter plot between two of your numeric columns.
+plot(df1$dec.num ~ df1$rep.num)
+plot(df1$dec.num ~ df1$rep.num, xlab = "Explanatory", ylab = "Response", main = "Scat plot (self-made)")
+
   # Change the point shape and color to something NOT used in the example.
+plot(df1$dec.num ~ df1$rep.num, xlab = "Explanatory", ylab = "Response", main = "Scat plot (self-made)", pch=12)
+plot(df1$dec.num ~ df1$rep.num, xlab = "Explanatory", ylab = "Response", main = "Scat plot (self-made)", pch=12, col = "saddlebrown")
+
   # Change the x and y labels and add a title
   # Export the plot as a JPEG by using the "Export" button in the plotting pane.
 
