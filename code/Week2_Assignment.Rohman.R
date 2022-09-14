@@ -33,19 +33,19 @@ arrows(b.plot, df.mean$Mean-df.sd$StanDev,
        b.plot, df.mean$Mean+df.sd$StanDev,angle=90,code=3)
 b.plot <- barplot(df.mean$Mean, names.arg = df.mean$Factor, ylim = c(0,5))
 arrows(b.plot, df.mean$Mean-df.sd$StanDev,
-       b.plot, df.mean$Mean+df.sd$StanDev,angle=90,code=3)
+       b.plot, df.mean$Mean+df.sd$StanDev,angle=90,code=3)#Need to put this line after 39 in order for someone to replicate your code.
 
 # Change the x and y labels and add a title
-b.plot <- barplot(df.mean$Mean, names.arg = df.mean$Factor, ylim = c(0,5), xlab = "Explanatory", ylab = "Response", main = "Baby's First Barplot")
+b.plot <- barplot(df.mean$Mean, names.arg = df.mean$Factor, ylim = c(0,5), xlab = "Explanatory", ylab = "Response", main = "Baby's First Barplot")#You did all of the right things here but never combined them into a single plot!
   # Export the plot as a PDF that is 4 inches wide and 7 inches tall.
-
+#I couldn't recreate the plot without jumping around in your code - but you've got all the parts here!
 # Create a scatter plot between two of your numeric columns.
 plot(df1$dec.num ~ df1$rep.num)
 plot(df1$dec.num ~ df1$rep.num, xlab = "Explanatory", ylab = "Response", main = "Scat plot (self-made)")
 
   # Change the point shape and color to something NOT used in the example.
 plot(df1$dec.num ~ df1$rep.num, xlab = "Explanatory", ylab = "Response", main = "Scat plot (self-made)", pch=12)
-plot(df1$dec.num ~ df1$rep.num, xlab = "Explanatory", ylab = "Response", main = "Scat plot (self-made)", pch=12, col = "saddlebrown")
+plot(df1$dec.num ~ df1$rep.num, xlab = "Explanatory", ylab = "Response", main = "Scat plot (self-made)", pch=12, col = "saddlebrown")#forgot to change the axis labels.
 
   # Change the x and y labels and add a title
   # Export the plot as a JPEG by using the "Export" button in the plotting pane.
