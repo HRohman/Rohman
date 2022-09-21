@@ -62,6 +62,4 @@ C 2.520027
         
           # Diversity metrics are frequently used in community ecology for reasons ranging from a quick comparison between sites to understanding community stability.
           # Their calculation can be very tedious by hand - and very fast with a package designed for the operation.
-
-
-
+#Perfect!
