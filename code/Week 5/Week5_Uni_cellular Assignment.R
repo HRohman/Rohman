@@ -9,7 +9,7 @@
 
 # Based on these observations of your strain distributions, why did the authors use a Kruskal-Wallis test rather than ANOVA to compare the strains? (2 pts)
 
-##Anova's assume that the data has equal distributions, and since this data does not, the authos used a Kruskal-Wallis test instead.
+##Anova's assume that the data has equal distributions, and since this data does not, the authors used a Kruskal-Wallis test instead.
 
 # Use the fitdist() and gofstat() functions to compare the poisson, negative binomial, and logistic distributions for:
   # (1) - The number of cells of progeny (data$Num.Cells.Progeny)
@@ -17,17 +17,34 @@
       # 3 points each
     #HINT- "Num.Cells.Progeny" has defined breaks. To display results, use the formula with the "chisqbreaks" argument as follows:
       #gofstat(list(fit.1, fit.2, fit.3, etc), chisqbreaks=c(1,2,4,8,16,32,64))
+library(fitdistrplus)
+?fitdist
+one.col <- data$Num.Cells.Progeny
+fitdist.p <- fitdist(c(na.exclude(one.col)), distr = "pois")
+fitdist.nb <- fitdist(c(na.exclude(one.col)), distr = "nbinom")
+fitdist.ld <- fitdist(c(na.exclude(one.col)), distr = "logis")
+gofstat(list(fitdist.nb, fitdist.p, fitdist.ld), chisqbreaks=c(1,2,4,8,16,32,64))
+
+two.col <- data$RepTime.sec
+fitdist.p2 <- fitdist(c(na.exclude(two.col)), distr = "pois")
+fitdist.nb2 <- fitdist(c(na.exclude(two.col)), distr = "nbinom")
+fitdist.ld2 <- fitdist(c(na.exclude(two.col)), distr = "logis")
+gofstat(list(fitdist.nb2, fitdist.p2, fitdist.ld2)
+
 
 
 # Based on the AIC scores, which distribution is the best fit for: (4 pts)
-  # (1) - The number of cells of progeny (data$Num.Cells.Progeny)?
-  # (2) - The replication time (data$RepTime.sec)?
+  # (1) - The number of cells of progeny (data$Num.Cells.Progeny)?  The Negative binomial because it is the lowest AIC value. 
+  # (2) - The replication time (data$RepTime.sec)? The Negative binomial because it is the lowest AIC value. 
 
 
 # Plot a generic histogram for the replication time (data$RepTime.sec) (2 pt)
 
+hist(data$RepTime.sec)
+
 # Based on the patterns of this histograms and Figure 4:
   #Give one hypothesis for an evolutionary process represented by the two tallest bars in your histogram. (6 pts)
+## One hypothesis could be that the prey evolved a highly valuable trait, like increased size, and that is why the frequency of the gene shot way up.
   # Don't cheat by looking at the paper! 
     # This hypothesis does not need to be correct - it only needs to be ecologically rational based these two figures.
 
