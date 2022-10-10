@@ -33,7 +33,8 @@ summary(mod.gen)
 
 ## The environment model is a better fit because more of the data is significant that in the genotype model. This can be understood by looking at the little stars next to the data. 
 ## The genotype model has more data but less stars, while the environment model has less data but a greater amount of significance. 
-
+#Little stars = p-value
+#What about the r-squared too?
   # Hint: Does one model seem more likely to be over-fitted?
 
 # Which environment would be your very WORST choice for generating a strong yield response? (2 points)
