@@ -10,6 +10,7 @@
 # Based on these observations of your strain distributions, why did the authors use a Kruskal-Wallis test rather than ANOVA to compare the strains? (2 pts)
 
 ##Anova's assume that the data has equal distributions, and since this data does not, the authors used a Kruskal-Wallis test instead.
+#Why does that make K-W better for non-normal? (median/rank-based)
 
 # Use the fitdist() and gofstat() functions to compare the poisson, negative binomial, and logistic distributions for:
   # (1) - The number of cells of progeny (data$Num.Cells.Progeny)
@@ -29,7 +30,7 @@ two.col <- data$RepTime.sec
 fitdist.p2 <- fitdist(c(na.exclude(two.col)), distr = "pois")
 fitdist.nb2 <- fitdist(c(na.exclude(two.col)), distr = "nbinom")
 fitdist.ld2 <- fitdist(c(na.exclude(two.col)), distr = "logis")
-gofstat(list(fitdist.nb2, fitdist.p2, fitdist.ld2)
+gofstat(list(fitdist.nb2, fitdist.p2, fitdist.ld2))
 
 
 
@@ -48,10 +49,7 @@ hist(data$RepTime.sec)
   # Don't cheat by looking at the paper! 
     # This hypothesis does not need to be correct - it only needs to be ecologically rational based these two figures.
 
-
-
-
-
+#Didn't answer!
 
 
 
