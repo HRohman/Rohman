@@ -35,24 +35,31 @@ summary(glmm.mod4)
 
 
 # (Q3) - Plot the residuals of both models. Do you think either model is a good fit? Why or why not? (3 pts)
-plot(glmm.mod3)
-plot(glmm.mod4)
+plot(glmm.mod3$residuals)
+plot(glmm.mod4$residuals)
 
-#Neither of the models are good fits. The data is spread out pretty evenly so you can't easily read any trends. 
+#THe second model is better. The data follows a tighter pattern, but not by much - neither of the models are a great fit. 
 
 # Re-run both models as generalized additive models instead (using gam). Then compare the AIC of both models. (4 points each)
-gam.mod1 <- gam(prop.cons~claw.width, family = binomial, random = ~ 1 | block, data = df)
+gam.mod1 <- gam(prop.cons~claw.width*carapace.width, family = binomial, random = ~ 1 | block, data = df)
 plot(gam.mod1)
+gam.mod2 <- gam(prop.cons~temperature + toadfish.cue.treatment, family = binomial, random = ~ 1 | block, data = df)
+plot(gam.mod2)
 
 
 # (Q4) - Which model is a better fit? (2 pt)
 
+AIC(gam.mod1, gam.mod2)
 
+##gam.mod1 is a better fit. 
 
 
 # (Q5) - Based on the residuals of your generalized additive models, how confident are you in these results? (2 pts)
 
+plot(gam.mod1$residuals)
+plot(gam.mod2$residuals)
 
+## I'm not confident in either because the data is so spread out on both models and doesn't follow a trend.
 
 
 
