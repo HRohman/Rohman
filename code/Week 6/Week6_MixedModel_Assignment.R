@@ -14,6 +14,7 @@ summary(glmm.mod)
 glmm.mod2 <- glmmPQL(activity.level~claw.width, family = binomial, random = ~ 1 | block, data = df)
 summary(glmm.mod2)
     # Use a binomial distribution and block as a random effect in both models to match the paper's analyses. Remember ?family to find distribution names.
+#Need three predictor variables in each model: y~x1+x2+x3 or y~x1*x2+x3
 
 # The authors used proportional consumption of prey as the (y) in their model, but did not include this in the dataset.
   # So we are going to create it - run the following line, assuming df= your data frame (feel free to change that):
@@ -27,18 +28,20 @@ summary(glmm.mod4)
 
 # (Q1) - The code in line 8 is performing two operations at once. What are they? (2 pts)
 ##The code estimates how much of a random effect individuals have on the data, and it evaluates the distribution as binomial.
-
+# The line creates a proportion and then generates a new column in the data frame.
 
 # (Q2) - Did the interactive effect change which variables predict proportional consumption? How, specifically, did the results change? (5 pts)
 
 ##Yes. When running the interactive effect with prop.con, temperature becomes a predictor variable since it has a significant p-value. 
-
+#What makes this interactive?
 
 # (Q3) - Plot the residuals of both models. Do you think either model is a good fit? Why or why not? (3 pts)
 plot(glmm.mod3$residuals)
 plot(glmm.mod4$residuals)
 
 #THe second model is better. The data follows a tighter pattern, but not by much - neither of the models are a great fit. 
+#Both are bad - there is a clear/strong pattern when the goal is random.
+
 
 # Re-run both models as generalized additive models instead (using gam). Then compare the AIC of both models. (4 points each)
 gam.mod1 <- gam(prop.cons~claw.width*carapace.width, family = binomial, random = ~ 1 | block, data = df)
@@ -60,6 +63,7 @@ plot(gam.mod1$residuals)
 plot(gam.mod2$residuals)
 
 ## I'm not confident in either because the data is so spread out on both models and doesn't follow a trend.
+#That is the goal! I wouldn't be very confident in either because there are still some clear trends buried in there.
 
 
 
