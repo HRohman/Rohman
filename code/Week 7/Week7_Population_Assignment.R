@@ -6,7 +6,7 @@ library(ggplot2)
 
 # Read the "Plankton_move_average" CSV in from GitHub. 
 # These are data from the Great Lakes Environmental Research Laboratory plankton sampling.
-setwd("C:/Github/R4Eco_2022/Week7")
+setwd("C:/Github/Rohman/code/Week7")
 read.csv("Plankton_move_average.csv")
 data <- read.csv("Plankton_move_average.csv")
 
@@ -42,11 +42,22 @@ LotVmod <- function (Time, State, Pars) {
 }
 
 # (2) - What do alpha, beta, gamma, and delta represent in this function? (4 pts)
-## Alpha represents how much the populations fluctuate. 
+## Alpha represents prey reproduction coefficient, beta represents the rate of predation, Gamma represents stability, and delta is the rate of prey consumption.
 # (3) - By only changing values for alpha, beta, gamma, and/or delta
 # change the default parameters of the L-V model to best approximate the relationship between Limncalanus and D.mendotae, assuming both plots are on the same time scale.
+Pars <- c(alpha = 2.8, beta = 0.5, gamma = .3, delta = .6)
+State <- c(x = 10, y = 10)
+Time <- seq(0, 100, by = 1)
+plot <- as.data.frame(ode(func = LotVmod, y = State, parms = Pars, times = Time))
+matplot(plot[,-1], type = "l", xlab = "time", ylab = "population")
+legend("topright", c("Limnocalanus", "D.mendotae"), lty = c(1,2), col = c(1,2), box.lwd = 0)
+
 # What are the changes you've made to alpha, beta, gamma, and delta from the default values; and what do they say in a relative sense about the plankton data? (4 pts)
+## I changed the alpha value. It says that the Limnocalanus is more affected by changes in prey reproduction than D.mendotae is. 
+
 # Are there other paramenter changes that could have created the same end result? (2 pts)
+## Maybe beta? Decreasing the rate of predation would sort of superficially make the rate of reproduction appear like its increasing since there would be more individuals. 
+
 # Export your final L-V plot with a legend that includes the appropriate genus and/or species name as if the model results were the real plankton data, 
 # and upload with your script. (hint - remember which one is the predator and which is the prey)
 
