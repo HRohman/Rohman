@@ -27,6 +27,7 @@ ggplot(data)  +
 
 # (1) - Which species is most likely to be r-selected prey and which its primary predator? (2 pts)
 ### The black line is the r-selected prey and the orange line is it's primary predator. 
+#Which species are those representing?
 
 # What is one relationship the third species MIGHT have to the first two? (2 pts)
 ### The third species could be another predator that is in competition with the orange line. 
@@ -54,6 +55,7 @@ legend("topright", c("Limnocalanus", "D.mendotae"), lty = c(1,2), col = c(1,2), 
 
 # What are the changes you've made to alpha, beta, gamma, and delta from the default values; and what do they say in a relative sense about the plankton data? (4 pts)
 ## I changed the alpha value. It says that the Limnocalanus is more affected by changes in prey reproduction than D.mendotae is. 
+#That means you changed the rate of D.mendotae reproduction...I think they might have an opinion about how much it effects them.
 
 # Are there other paramenter changes that could have created the same end result? (2 pts)
 ## Maybe beta? Decreasing the rate of predation would sort of superficially make the rate of reproduction appear like its increasing since there would be more individuals. 
