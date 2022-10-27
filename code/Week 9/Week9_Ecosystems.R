@@ -9,7 +9,7 @@
 
 library(readxl)
 
-setwd("C:/GitHub/R4Eco_2022/Week9")
+setwd("C:/GitHub/Rohman/code/Week 9")
 
 # First, read in the abiotic data:
   # Make sure the excel file is NOT open on your computer or it will generate an error (unlike read.csv)
