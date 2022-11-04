@@ -54,6 +54,7 @@ mod1 <- lm(pH ~Plot + totalN + Trichia_hispida + Opomyza_sp,ab.invert3)
 anova(mod1)
 AIC(mod1)
 #Lines 34-55 are identical to snippets from someone you sit next to...but nonfunctional in your script.
+#Also did not explain the interpretation/result here.
 
 # (Q3 - 6 pts) Provide a 3-4 sentence synthesis of how these results relate to one another and the value of considering both together for interpreting biotic-abiotic interactions.
 
