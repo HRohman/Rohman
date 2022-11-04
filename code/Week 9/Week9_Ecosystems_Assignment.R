@@ -3,16 +3,20 @@
 
 # (Q1 - 12 pts) Use the dataset from the tutorial to complete one redundancy analysis (RDA) with variance partitioning on a different community (NOT the nematodes).
   # Explain the ecological importance of your significant predictor variables, or the importance if none are significant for your community.
+#Where is the library for reading the spreadsheets in as data frames?
+#Where is your working directory?
+setwd("C:/GitHub/Rohman/code/Week 9")
 invert.tibble <- read_excel("Penaetal_2016_data.xlsx", sheet = "Invertebrate_community")
-Abiotic <- as.data.fram(abiotic.tibble)
+Abiotic <- as.data.frame(abiotic.tibble)#typo here - also where is your abiotic data for reading into the script?
+
 invert <- as.data.frame(invert.tibble)
 head(invert)
-head(abiotic)
-abiotic.names <- past(abiotic$parcel)
+head(abiotic) #Abiotic is upper case above and lower case here.
+abiotic.names <- paste(abiotic$parcel)#Type here too.
 abiotic$names <- abiotic.names
 invert.names <- paste(invert$Parcel, invert$Landuse)
 invert$names <- invert.names
-abiotic.mean <- aggregate (x = invertebrate, by = list(invertebrate$names), FUN = "mean")
+abiotic.mean <- aggregate (x = invertebrate, by = list(invertebrate$names), FUN = "mean") #different names between object and function input. Also different intended data (abiotic vs invert) that will cause serious issues downstream. 
 abiotic.mean1 <- abiotic.mean[,-16]
 head(abiotic.mean)
 abotic.mean2 <- abiotic.mean[,-2:-3]
@@ -49,7 +53,7 @@ colnames(ab.invert3)
 mod1 <- lm(pH ~Plot + totalN + Trichia_hispida + Opomyza_sp,ab.invert3)
 anova(mod1)
 AIC(mod1)
-
+#Lines 34-55 are identical to snippets from someone you sit next to...but nonfunctional in your script.
 
 # (Q3 - 6 pts) Provide a 3-4 sentence synthesis of how these results relate to one another and the value of considering both together for interpreting biotic-abiotic interactions.
 
