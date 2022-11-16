@@ -91,6 +91,7 @@ RsquareAdj(DipteraHabNoSpace.rda)
 ## clingers lifestyle, hanging on rocks, that they would be much more affected by changes in habitat instead of changes in how much space is available. The values for Diptera saw
 ## greater variability. The greatest change was a 14% increase in conditional for space with no habitat. This is because the Diptera are strong fliers and thus would need a large habitat 
 ## to fly around in! 
+#I think you are off by a decimal or two in your interpretation of clingers...and comparison between the two should be more about the constrained than the conditional.
 
 
 #Part 3: For each of your chosen groups of bugs, perform variable selection for the habitat data rather than the AEM data. Which habitat variables are significant for each? (10 points)
@@ -113,6 +114,7 @@ Diptera.vs <- rda(Diptera.csv~., HabitatbyPatch.csv)
 Diptera.vs
 
 ### There are three zeroes for AveAr, Fines, and Flow. This makes sense because Diptera are fliers, and therefore would not be super affected by rock size/substrate particles/water velocity.
+#These were supposed to be variable selection rather than Y~X RDA's. What you did shows a part of that picture, but not the whole picture.
 
 
 #Part 4: How do you expect selecting both the spatial and the habitat variables would change the results of the RDAs from Part 1 above? (5 points)
@@ -120,3 +122,7 @@ Diptera.vs
 
 ### Selecting for spatial variables wouldn't affect the clingers that much since they do not require a lot of space just to hang on to the same rock. Diptera's RDA, however
 ### would be affected since they need a lot more space to fly around. 
+#This might be true, but it's tangential to the question. Without selecting variables for habitat, you are likely overfitting that part of the model.
+#So the "real" influence of space is likely much stronger than what you generated with the above models.
+
+#PS --- I don't mind working through issues together, but copy-paste of code and rephrasing of the same answers is a bit too far...
