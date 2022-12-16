@@ -20,7 +20,7 @@ zhaoqing2$TempDiff <- zhaoqing2$Day-zhaoqing2$Night
 zhaoqing2$Species <- c("T.sexlineatus","T.sexlineatus","T.sexlineatus","T.sexlineatus","T.sexlineatus","T.sexlineatus","T.sexlineatus","T.sexlineatus","T.sexlineatus","T.sexlineatus","T.sexlineatus","T.sexlineatus")
 chuzhou2$Species <- c("T.wolteri","T.wolteri","T.wolteri","T.wolteri","T.wolteri","T.wolteri","T.wolteri","T.wolteri","T.wolteri","T.wolteri","T.wolteri","T.wolteri")
 
-#Averaging out the data
+#Averaging out the data - Why???
 zhaliz.mean <- aggregate(zha.lizards$RMR18C.ml.g.hr. ~ zha.lizards$Species, FUN = "mean")
 head(zhaliz.mean)
 chuliz.mean <- aggregate(chu.lizards$RMR18C.ml.g.hr. ~ chu.lizards$Species, FUN = "mean")
@@ -46,6 +46,8 @@ Alldata <- merge(lizards2.0,temps, by = "Species")
 mod1 <- gam(MetabolicRate ~ TempDiff,family = Gamma, random = list(ID=~1),data = Alldata)
 mod2 <- gam(MetabolicRate ~ Species,family = Gamma, random = list(ID=~1),data = Alldata)
 AIC(mod1,mod2)
+#These models produce essentially a perfect fit because you are only comparing means.Why not use the data before aggregating?
+#What about significance tests? And why GAMs?
 
 #graphs
 plot(Alldata$MetabolicRate,Alldata$TempDiff,xlim = c(0.150,0.240),xlab = "Metabolic Rate of Lizards", ylab = "Temperature Difference",col = "snow", main = "Temperature Fluctuation (Day - Night) Compared with Metabolic rates of Lizards")
@@ -54,3 +56,5 @@ text(Alldata$MetabolicRate,Alldata$TempDiff, labels = Alldata$Species)
 barplot(lizards2.0$MetabolicRate~lizards2.0$Species, xlab = "Species",ylab = "Metabolic Rate", main = "Metabolic Rates for two Lizard species in China")
 boxplot(Alldata$TempDiff*Alldata$MetabolicRate ~ Alldata$Species,xlab = "Species",ylab = "Metabolic Rate times ∆Temperature", main = "Metabolic Rates and Temperature Difference comapred by species" )
 
+#these figures are well made, but don't say much with only two data points on each one.
+#Where is the 3rd/different statistic?
